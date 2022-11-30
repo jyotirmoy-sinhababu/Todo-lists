@@ -20,6 +20,23 @@ const Container = () => {
       setIsOpen(false);
     }
   };
+  //save the edit data
+  const handleEdit = (param) => {
+    const filteredList = formInput.filter((lists) => {
+      return lists.id != param.id;
+    });
+    filteredList.push(param);
+    setFormInput(filteredList);
+  };
+
+  //delete lists
+  const handelDelete = (param) => {
+    const filteredList = formInput.filter((lists) => {
+      return lists.id != param.id;
+    });
+    setFormInput(filteredList);
+  };
+
   useEffect(() => {
     console.log(formInput);
   }, [formInput]);
@@ -86,14 +103,23 @@ const Container = () => {
         {formInput?.map((item) => {
           return (
             <div key={item.id}>
-              <DisplayLists item={item} />
+              <DisplayLists
+                item={item}
+                handleEdit={handleEdit}
+                handelDelete={handelDelete}
+              />
             </div>
           );
         })}
       </div>
       <div>
         <Modal isOpen={isOpen}>
-          <TodoForm handleSubmit={saveTodoData} />
+          <TodoForm
+            handleSubmit={saveTodoData}
+            isClose={() => {
+              setIsOpen(false);
+            }}
+          />
         </Modal>
       </div>
     </>

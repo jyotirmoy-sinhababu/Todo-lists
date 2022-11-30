@@ -1,28 +1,27 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import './form.css';
 
-const TodoForm = ({ handleSubmit, isClose }) => {
-  const [data, setData] = useState('');
-  const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+const EditForm = ({ closeEdit, inputs, handleEdit }) => {
+  const [editedData, setEditedData] = useState(inputs);
+  const onChangeEdit = (e) => {
+    setEditedData({ ...editedData, [e.target.name]: e.target.value });
   };
-
   return (
-    <>
+    <div>
       <form
         className='form'
         onSubmit={(e) => {
           e.preventDefault(e);
-          handleSubmit(data);
+          handleEdit(editedData);
         }}
       >
         <input
           className='input-txt'
           onChange={(e) => {
-            handleChange(e);
+            onChangeEdit(e);
           }}
+          value={editedData.title}
           type='text'
           name='title'
           placeholder=' Enter title'
@@ -30,8 +29,9 @@ const TodoForm = ({ handleSubmit, isClose }) => {
         <input
           className='input-txt'
           onChange={(e) => {
-            handleChange(e);
+            onChangeEdit(e);
           }}
+          value={editedData.date}
           type='text'
           name='date'
           placeholder='Enter date'
@@ -39,23 +39,24 @@ const TodoForm = ({ handleSubmit, isClose }) => {
         <textarea
           className='input-txt-area'
           onChange={(e) => {
-            handleChange(e);
+            onChangeEdit(e);
           }}
+          value={editedData.lists}
           name='lists'
           placeholder='Write your lists'
         ></textarea>
         <div className='btn-cnt'>
           {' '}
           <button className='btn' type='submit'>
-            Add
+            Save
           </button>
-          <button onClick={isClose} className='btn'>
+          <button className='btn' onClick={closeEdit}>
             Cancel
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
-export default TodoForm;
+export default EditForm;

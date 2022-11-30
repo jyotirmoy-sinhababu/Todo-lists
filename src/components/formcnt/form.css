@@ -1,0 +1,47 @@
+.form {
+  border-radius: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+  gap: 1.5rem;
+  height: 600px;
+  padding: 1.5rem;
+  margin-left: 30px;
+  width: 460px;
+}
+
+.input-txt {
+  border: 1px solid #d2d8e2;
+  border-radius: 0.625rem;
+  height: 2.125rem;
+  margin: 0.5rem 0 0.125rem;
+  max-width: 145.25rem;
+  padding: 0 0.875rem;
+  width: 100%;
+}
+.input-txt-area {
+  border: 1px solid #d2d8e2;
+  border-radius: 0.625rem;
+  height: 4.125rem;
+  margin: 0.5rem 0 0.125rem;
+  max-width: 145.25rem;
+  padding: 0 0.875rem;
+  width: 100%;
+}
+
+.btn-cnt {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.btn {
+  height: 40px;
+  width: 100px;
+  background-color: #fff;
+  border: 1px solid #2ca4d8;
+  border-radius: 0.6rem;
+  color: #2ca4d8;
+  -webkit-filter: drop-shadow(0 2px 20px rgba(44, 164, 216, 0.2));
+  filter: drop-shadow(0 2px 20px rgba(44, 164, 216, 0.2));
+}
