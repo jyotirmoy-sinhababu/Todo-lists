@@ -1,15 +1,27 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from '../../modal/Modal';
 import TodoForm from '../formcnt/TodoForm';
 
 const Container = () => {
-  const [isOpen, satIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [formInput, setFormInput] = useState([]);
 
+  // to open modal
   const openModal = () => {
-    satIsOpen(true);
+    setIsOpen(true);
   };
 
+  //to save todo-form data
+  const saveTodoData = (data) => {
+    if (data?.title && data?.date && data?.lists) {
+      data.id = Math.floor(Math.random() * 1000);
+      setFormInput([...formInput, data]);
+      setIsOpen(false);
+    }
+  };
+  useEffect(() => {
+    console.log(formInput);
+  }, [formInput]);
   return (
     <>
       <div
@@ -71,7 +83,7 @@ const Container = () => {
       </div>
       <div>
         <Modal isOpen={isOpen}>
-          <TodoForm />
+          <TodoForm handleSubmit={saveTodoData} />
         </Modal>
       </div>
     </>
