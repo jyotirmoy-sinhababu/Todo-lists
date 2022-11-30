@@ -1,0 +1,81 @@
+import React from 'react';
+import { useState } from 'react';
+import Modal from '../../modal/Modal';
+import TodoForm from '../formcnt/TodoForm';
+
+const Container = () => {
+  const [isOpen, satIsOpen] = useState(false);
+
+  const openModal = () => {
+    satIsOpen(true);
+  };
+
+  return (
+    <>
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          maxWidth: '1500px',
+          gap: '2rem',
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+          marginRight: '2.5rem',
+          height: '80px',
+        }}
+      >
+        <p
+          style={{
+            fontSize: '1.5rem',
+            fontWeight: 400,
+            color: 'cornflowerblue',
+          }}
+        >
+          Start taking note..
+        </p>
+        <div
+          className='add-btn-cnt'
+          style={{
+            height: '55px',
+            width: '55px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: '50%',
+            backgroundColor: 'cornflowerblue',
+          }}
+        >
+          <button
+            onClick={openModal}
+            style={{
+              border: 'none',
+              backgroundColor: 'cornflowerblue',
+              borderRadius: '50%',
+            }}
+          >
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='43'
+              height='43'
+              fill='currentColor'
+              className='bi bi-plus-lg'
+              viewBox='0 0 16 16'
+            >
+              <path
+                fillRule='evenodd'
+                d='M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z'
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div>
+        <Modal isOpen={isOpen}>
+          <TodoForm />
+        </Modal>
+      </div>
+    </>
+  );
+};
+
+export default Container;
