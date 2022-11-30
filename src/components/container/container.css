@@ -1,0 +1,5 @@
+.main-display-cnt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}

@@ -23,19 +23,22 @@ const DisplayLists = ({ item, handleEdit, handelDelete }) => {
     <div className='display-cnt'>
       <div className='dis-value-cnt'>
         {' '}
-        <div>
-          <p className='dis-value'>{item.title} </p>
-          <p className='dis-value'>{item.lists} </p>
+        <div className='dis-value-date-cnt'>
+          <p className='dis-value-date'>{item.date} </p>
         </div>
-        <div>
-          <p className='dis-value'>{item.date} </p>
+        <div className='dis-value-txt-cnt'>
+          <p className='dis-value-title'>{item.title} </p>
+        </div>
+        <div className='dis-value-lists-cnt'>
+          {' '}
+          <p className='dis-value-lists'>{item.lists} </p>
         </div>
       </div>
 
       <div>
-        <div>
+        <div className='select-cnt'>
           {!item?.priority ? (
-            <select onChange={handleChangeSelect}>
+            <select className='select' onChange={handleChangeSelect}>
               <option value='high'>High</option>
               <option value='mid'>Mid</option>
               <option value='low'>Low</option>
@@ -44,18 +47,27 @@ const DisplayLists = ({ item, handleEdit, handelDelete }) => {
             <p>{item?.priority}</p>
           )}
         </div>
-        <div>
+        <div className='checkbox-cnt'>
           <input type='checkbox' name='check' value='done' />
-          <label htmlFor='vehicle1'> I have completed</label>
+          <label className='label' htmlFor='vehicle1'>
+            {' '}
+            I have completed
+          </label>
         </div>
-        <button onClick={openEdit}>Edit</button>
-        <button
-          onClick={() => {
-            handelDelete(item);
-          }}
-        >
-          Delete
-        </button>
+        <div className='btn-cnt-one'>
+          {' '}
+          <button className='btn' onClick={openEdit}>
+            Edit
+          </button>
+          <button
+            className='btn'
+            onClick={() => {
+              handelDelete(item);
+            }}
+          >
+            Delete
+          </button>
+        </div>
       </div>
       <div>
         <Modal isOpen={isEditOpen}>

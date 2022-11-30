@@ -1,2 +1,60 @@
+.display-cnt {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  border: 1px solid salmon;
+  width: 250px;
+  height: 400px;
+  padding-left: 50px;
+  border-radius: 20px;
+}
 
+.dis-value-cnt {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
 
+.dis-value-date-cnt {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  border-bottom: 3px solid sandybrown;
+}
+
+.dis-value-title {
+  font-size: 1.9rem;
+  border-bottom: 2px solid salmon;
+  padding-left: 5px;
+}
+
+.dis-value-lists-cnt {
+  border: 3px solid sandybrown;
+  height: 65px;
+  border-radius: 9px;
+  padding: 10px;
+}
+
+.select-cnt {
+  border: 6px solid sandybrown;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 5px;
+}
+
+.select {
+  border: none;
+}
+
+.checkbox-cnt {
+  padding: 10px;
+}
+
+.label {
+  color: rgb(11, 64, 64);
+}
+
+.btn-cnt-one {
+  display: flex;
+  gap: 1.2rem;
+}

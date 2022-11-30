@@ -3,6 +3,8 @@ import Modal from '../../modal/Modal';
 import DisplayLists from '../displaylists/DisplayLists';
 import TodoForm from '../formcnt/TodoForm';
 
+import './container.css';
+
 const Container = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formInput, setFormInput] = useState([]);
@@ -99,7 +101,7 @@ const Container = () => {
           </button>
         </div>
       </div>
-      <div>
+      <div className='main-display-cnt'>
         {formInput?.map((item) => {
           return (
             <div key={item.id}>
