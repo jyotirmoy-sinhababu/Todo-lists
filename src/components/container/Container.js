@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from '../../modal/Modal';
+import DisplayLists from '../displaylists/DisplayLists';
 import TodoForm from '../formcnt/TodoForm';
 
 const Container = () => {
@@ -80,6 +81,15 @@ const Container = () => {
             </svg>
           </button>
         </div>
+      </div>
+      <div>
+        {formInput?.map((item) => {
+          return (
+            <div key={item.id}>
+              <DisplayLists item={item} />
+            </div>
+          );
+        })}
       </div>
       <div>
         <Modal isOpen={isOpen}>
